@@ -69,7 +69,6 @@ class TF2DataLogger(Node):
         z = t.transform.translation.z 
 
         self.saved_translations.append({
-            'point': self.point_index,
             'x': x,
             'y': y,
             'z': z
@@ -84,7 +83,7 @@ class TF2DataLogger(Node):
             self.get_logger().info(f"No data points to save. CSV file '{self.CSV_FILE_PATH}' will not be created.")
             return 
 
-        keys = ['point', 'x', 'y', 'z']
+        keys = ['x', 'y', 'z']
 
         try:
             with open(self.CSV_FILE_PATH, 'w', newline='') as output_file:
